@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+
+    <div class="p-4 m-4">
+
+        <div class="col-lg-5 mx-auto border rounded p-4">
+            <h3 class="alert alert-light border rounded"> Create An Account </h3>
+
+            <form action="/signup" method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {% if error %}
+                <div class="alert alert-danger">
+                    <p>{{error}}</p>
+                </div>
+                {% endif %}
+                <!-- first name -->
+                <div class="form-group mt-3">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname" id="" value="{{values.firstname}}" class="form-control form-control-sm">
+
+                </div>
+                <!--Last name -->
+                <div class="form-group mt-3">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" id="" value="{{values.lastname}}" class="form-control form-control-sm">
+
+                </div>
+                <!-- mobile number -->
+                <div class="form-group mt-3">
+                    <label for="">Mobile Number</label>
+                    <input type="text" name="phone" id="" value="{{values.phone}}" class="form-control form-control-sm" placeholder="9898989898">
+
+                </div>
+                <!-- email -->
+                <div class="form-group mt-3">
+                    <label for="">Email</label>
+                    <input type="email" name="email" id="" value="{{values.email}}" class="form-control form-control-sm" placeholder="example@email.com">
+
+                </div>
+                <!-- Password-->
+                <div class="form-group mt-3">
+                    <label for="">Password</label>
+                    <input type="Password" name="password" id="" class="form-control form-control-sm" placeholder="********">
+
+                </div>
+
+
+                <!-- profile image -->
+                <div class="input-group mt-3">
+
+                    <input type="file" name="profile_image" accept="image/*" class="form-control" id="inputGroupFile02" placeholder="upload profile photo">
+                    <!-- <label class="input-group-text" for="inputGroupFile02">Upload </label> -->
+                </div>
+                <!-- submit button -->
+                <div class="form-group mt-4">
+                    <input class="btn btn-sm btn-info" type="submit" value="create an account">
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
